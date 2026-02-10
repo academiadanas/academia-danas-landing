@@ -1,0 +1,75 @@
+---
+const certifications = [
+  'PowderBrows - PhiAcademy',
+  'BoldBrows Artist - PhiAcademy',
+  'Microblading Artist - BalticBrows',
+  'Ombre Machine - BalticBrows',
+];
+
+const stats = [
+  { value: '50+', label: 'Alumnas' },
+  { value: '20+', label: 'Años Exp.' },
+  { value: '4.9', label: 'Rating' },
+];
+---
+
+<section id="instructora" class="py-20 container mx-auto px-4">
+  <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+    <div class="grid md:grid-cols-2 gap-0">
+      <!-- Image -->
+      <div class="relative min-h-[400px] md:h-full">
+        <img
+          src="/img/dalilapelayo.jpg"
+          alt="Dalila Pelayo Brambila"
+          class="absolute inset-0 w-full h-full object-cover object-top"
+        />
+        <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur px-5 py-3 rounded-full shadow-lg flex items-center gap-3">
+          <i class="bi bi-award-fill text-primary text-xl" />
+          <div>
+            <p class="font-bold text-gray-900 text-sm leading-none">Dalila Pelayo</p>
+            <p class="text-xs text-primary font-semibold mt-1">Master Certificada</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-gray-50">
+        <span class="text-primary font-bold tracking-wider text-xs uppercase mb-2">
+          Conoce a tu instructora
+        </span>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+          Dalila Pelayo Brambila
+        </h2>
+        <p class="text-primary font-medium text-lg mb-6">
+          Master en Micropigmentación
+        </p>
+        <p class="text-gray-600 mb-8 leading-relaxed">
+          Con más de 20 años de experiencia transformando vidas a través de la micropigmentación,
+          Dalila ha formado a mujeres en profesionales exitosas.
+        </p>
+
+        <div class="space-y-4 mb-8">
+          {certifications.map((cert) => (
+            <div class="flex items-center gap-3">
+              <i class="bi bi-patch-check-fill text-primary text-lg" />
+              <span class="text-gray-700 font-medium">{cert}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex gap-8 pt-8 border-t border-gray-200">
+          {stats.map((stat) => (
+            <div class="text-center">
+              <span class="block font-display font-bold text-2xl text-primary">
+                {stat.value}
+              </span>
+              <span class="text-xs text-gray-500 uppercase tracking-wide">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

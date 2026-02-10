@@ -1,0 +1,33 @@
+---
+import Layout from '@layouts/Layout.astro';
+import WhatsAppButton from '@components/WhatsAppButton.astro';
+import Navbar from '@components/Navbar.astro';
+import Hero from '@components/Hero.astro';
+import Problems from '@components/Problems.astro';
+import Benefits from '@components/Benefits.astro';
+import Instructor from '@components/Instructor.astro';
+import Courses from '@components/Courses.astro';
+import Testimonials from '@components/Testimonials.astro';
+import FAQ from '@components/FAQ.astro';
+import CTA from '@components/CTA.astro';
+import Footer from '@components/Footer.astro';
+import ScrollAnimations from '@components/ScrollAnimations.astro';
+
+const title = 'Academia Danas - Cosmetología y Micropigmentación Profesional';
+const description = 'Certifícate en Cosmetología y Micropigmentación con validez oficial por el IDEFT. Aprende, emprende y multiplica tus ingresos en Academia Danas. ¡Inicia tu negocio de belleza hoy!';
+---
+
+<Layout title={title} description={description}>
+  <WhatsAppButton />
+  <Navbar />
+  <Hero />
+  <Problems />
+  <Benefits />
+  <Instructor />
+  <Courses />
+  <Testimonials />
+  <FAQ />
+  <CTA />
+  <Footer />
+  <ScrollAnimations />
+</Layout>

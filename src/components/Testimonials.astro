@@ -1,0 +1,83 @@
+---
+const testimonials = [
+  {
+    name: 'Daicy Tenorio',
+    role: 'Emprendedora',
+    image: '/img/daicy.jpg',
+    quote: 'Estudié en Academia Danas el diplomado en cosmetología facial y corporal... Academia Danas super recomendada para emprender tu propio negocio.',
+  },
+  {
+    name: 'Viviana Ramírez',
+    role: 'Emprendedora',
+    image: '/img/viviana.jpg',
+    quote: 'Decidí estudiar Cosmetología para emprender... Hoy, soy mamá presente y profesional independiente, cumpliendo el sueño que me propuse.',
+  },
+  {
+    name: 'Fátima Orozco',
+    role: 'Emprendedora',
+    image: '/img/fatima.jpg',
+    quote: 'Comencé mi emprendimiento en un cuarto de mi casa y hoy tengo mi propio spa... Gracias a la formación, hoy vivo de lo que amo.',
+  },
+  {
+    name: 'Erika Radillo',
+    role: 'Cosmetóloga',
+    image: '/img/erika.jpg',
+    quote: 'Soy Erika Radillo... Aunque fui maestra, descubrí que mi verdadera vocación estaba en la cosmetología. Si buscas algo que te llene, ven y vive esta transformación.',
+  },
+  {
+    name: 'Brenda Ceja',
+    role: 'Micropigmentadora',
+    image: '/img/brenda.jpg',
+    quote: 'Incursioné en el mundo de la belleza hace 7 años... tomé el curso de "Cejas Perfectas". La maestra Dalila ha sido una gran guía y motivación.',
+  },
+  {
+    name: 'Maritza Uribe',
+    role: 'Micropigmentadora',
+    image: '/img/maritza.jpg',
+    quote: 'Agradezco a Academia Danas por brindarme conocimientos en Micropigmentación. Gracias a las maestras Dalila y Duryenka por su apoyo y confianza.',
+  },
+];
+---
+
+<section id="testimonios" class="py-20 bg-white overflow-hidden">
+  <div class="container mx-auto px-4">
+    <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+      Historias de éxito reales
+    </h2>
+    <p class="text-center text-gray-500 mb-12">Lo que dicen nuestras alumnas</p>
+
+    <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory hide-scroll w-full md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:snap-none md:pb-0">
+      {testimonials.map((t) => (
+        <div class="flex-none w-[85vw] md:w-auto bg-gray-50 p-8 rounded-2xl border border-gray-100 snap-center h-auto flex flex-col hover:shadow-md transition-shadow duration-300">
+          <!-- Stars -->
+          <div class="flex text-yellow-400 mb-4 text-sm">
+            {Array(5).fill(null).map(() => (
+              <i class="bi bi-star-fill" />
+            ))}
+          </div>
+
+          <p class="text-gray-600 italic mb-6 text-sm leading-relaxed flex-1">
+            "{t.quote}"
+          </p>
+
+          <div class="flex items-center gap-4 mt-auto">
+            <img
+              src={t.image}
+              alt={t.name}
+              class="w-12 h-12 rounded-full object-cover"
+              loading="lazy"
+            />
+            <div>
+              <p class="font-bold text-gray-900 text-sm">{t.name}</p>
+              <p class="text-xs text-gray-500">{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="md:hidden text-center text-xs text-gray-400 mt-4 animate-pulse">
+      <i class="bi bi-arrow-left-right mr-1" /> Desliza para ver más
+    </p>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+interface Props {
+  phone?: string;
+  message?: string;
+}
+
+const { 
+  phone = '5213171323237', 
+  message = 'Hola, ¿podrían proporcionarme más información sobre los cursos que ofrecen?' 
+} = Astro.props;
+
+const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  class="fixed bottom-6 right-6 w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform z-50 hover:shadow-green-500/30"
+  aria-label="Contactar por WhatsApp"
+>
+  <i class="bi bi-whatsapp"></i>
+</a>

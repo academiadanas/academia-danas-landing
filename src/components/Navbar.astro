@@ -1,0 +1,105 @@
+---
+const phone = '5213171323237';
+const inscriptionMsg = 'Hola, me interesa inscribirme en uno de sus cursos.';
+const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(inscriptionMsg)}`;
+
+const navLinks = [
+  { href: '#cursos', label: 'Cursos' },
+  { href: '#beneficios', label: 'Beneficios' },
+  { href: '#instructora', label: 'Instructora' },
+  { href: '#testimonios', label: 'Testimonios' },
+];
+---
+
+<nav
+  id="navbar"
+  class="fixed w-full top-0 z-50 transition-all duration-300 border-b border-gray-100 bg-white/[0.92] backdrop-blur-[12px]"
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#inicio" class="flex-shrink-0 flex items-center">
+        <img
+          src="/img/logo-academiadanas.svg"
+          alt="Academia Danas"
+          class="h-10 w-auto md:h-12"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium hover:text-primary transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href={whatsappUrl}
+          class="px-5 py-2.5 bg-gradient-to-r from-primary to-primary-dark hover:shadow-glow text-white text-sm font-semibold rounded-full transition-all transform hover:-translate-y-0.5"
+        >
+          <i class="bi bi-whatsapp mr-2"></i> Inscríbete
+        </a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button
+        id="navToggle"
+        class="md:hidden text-3xl text-primary focus:outline-none p-2"
+        aria-label="Abrir menú"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0 w-full h-screen bg-white z-[100] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center"
+  >
+    <button
+      id="closeMenu"
+      class="absolute top-6 right-6 p-2 text-gray-400 hover:text-primary transition-colors focus:outline-none"
+      aria-label="Cerrar menú"
+    >
+      <i class="bi bi-x-lg text-4xl"></i>
+    </button>
+
+    <div class="flex flex-col space-y-8 text-center mb-10">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-link text-3xl font-display font-bold text-gray-900 hover:text-primary transition-colors tracking-tight"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <a
+      href={whatsappUrl}
+      class="px-10 py-4 bg-primary hover:bg-primary-dark text-white text-lg font-semibold rounded-full shadow-glow transition-all transform hover:scale-105 flex items-center gap-3"
+    >
+      <i class="bi bi-whatsapp text-xl"></i>
+      Inscríbete Ahora
+    </a>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    const openMenu = () => mobileMenu?.classList.remove('translate-x-full');
+    const closeMenuFn = () => mobileMenu?.classList.add('translate-x-full');
+
+    navToggle?.addEventListener('click', openMenu);
+    closeMenu?.addEventListener('click', closeMenuFn);
+    mobileLinks.forEach((link) => link.addEventListener('click', closeMenuFn));
+  });
+</script>

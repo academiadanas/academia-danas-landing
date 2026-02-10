@@ -1,0 +1,60 @@
+---
+const faqs = [
+  {
+    question: '¿Necesito experiencia previa para inscribirme?',
+    answer: 'Depende del curso. Algunos están diseñados para principiantes sin experiencia previa, y otros son exclusivos para profesionales del área. Cada curso tiene una etiqueta que indica el nivel requerido.',
+  },
+  {
+    question: '¿Los certificados tienen validez oficial?',
+    answer: 'Sí, nuestros diplomados están respaldados por el IDEFT (Instituto de Estudios y Formación para el Trabajo), lo que les da validez oficial ante la SEP.',
+  },
+  {
+    question: '¿Ofrecen facilidades de pago?',
+    answer: 'Sí, ofrecemos planes de pago flexibles a través del CrediCompras de la Caja Popular Cristóbal Colón.',
+  },
+  {
+    question: '¿Qué incluye la inscripción?',
+    answer: 'La inscripción incluye tu lugar asegurado, acceso a las clases, material teórico y un kit profesional completo con las herramientas necesarias para tu curso.',
+  },
+  {
+    question: '¿Puedo empezar a trabajar mientras estudio?',
+    answer: 'Sí, desde las primeras clases aprenderás técnicas que puedes poner en práctica. Muchas alumnas empiezan a generar ingresos antes de terminar su programa.',
+  },
+];
+
+const phone = '5213171323237';
+---
+
+<section class="py-20 bg-gray-50" id="faq">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h2 class="font-display text-3xl font-bold text-center mb-12">
+      Resolvemos tus dudas
+    </h2>
+
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-xl shadow-sm border border-gray-100 [&_summary::-webkit-details-marker]:hidden transition-all duration-300 hover:border-primary/50">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <h3 class="font-medium text-gray-900">{faq.question}</h3>
+            <span class="ml-1.5 flex-shrink-0 text-primary group-open:rotate-45 transition-transform duration-300">
+              <i class="bi bi-plus-lg text-xl" />
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-600 text-sm leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <p class="text-gray-500 mb-4">¿Tienes más preguntas?</p>
+      <a
+        href={`https://wa.me/${phone}`}
+        class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-full shadow-glow hover:bg-primary-dark transition-all"
+      >
+        <i class="bi bi-whatsapp mr-2" /> Escríbenos
+      </a>
+    </div>
+  </div>
+</section>
