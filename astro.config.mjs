@@ -6,5 +6,4 @@ export default defineConfig({
     integrations: [tailwind()],
     output: "static",
     adapter: vercel(),
-    base: "/aprende-emprende",
 });
